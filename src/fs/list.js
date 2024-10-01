@@ -1,7 +1,7 @@
 import * as fs from "node:fs/promises";
-import { createPath, FS_ERROR_MESSAGE } from "./utils.js";
+import { createPath, FS_ERROR_MESSAGE } from "../utils.js";
 
-const path = createPath("files");
+const path = createPath("fs/files");
 
 const list = async () => {
   try {
