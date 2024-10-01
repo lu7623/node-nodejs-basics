@@ -1,5 +1,14 @@
+import fs from "fs";
+import { createPath } from "../utils.js";
+
+const fileName = createPath("streams/files/fileToRead.txt");
+
 const read = async () => {
-    // Write your code here 
+  const readStream = fs.createReadStream(fileName, { encoding: "utf-8" });
+
+  readStream.on("data", (data) => {
+    process.stdout.write(`${data}\n`);
+  });
 };
 
 await read();
