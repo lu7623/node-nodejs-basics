@@ -2,9 +2,10 @@ import path, { dirname } from "node:path";
 import { release, version } from "os";
 import { createServer as createServerHttp } from "http";
 import "./files/c.js";
-import * as fs from "node:fs/promises";
+import { createRequire } from 'module'
 import { fileURLToPath } from "node:url";
 
+const require = createRequire(import.meta.url)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -13,13 +14,9 @@ const random = Math.random();
 export let unknownObject;
 
 if (random > 0.5) {
-  await fs.readFile(path.join(__dirname, "files/a.json")).then((data) => {
-    unknownObject = JSON.parse(data);
-  });
+    unknownObject = require('./files/a.json');
 } else {
-  await fs.readFile(path.join(__dirname, "files/b.json")).then((data) => {
-    unknownObject = JSON.parse(data);
-  });
+    unknownObject = require('./files/b.json');
 }
 
 console.log(`Release ${release()}`);
