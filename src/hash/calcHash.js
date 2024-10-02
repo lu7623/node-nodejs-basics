@@ -17,7 +17,9 @@ const calculateHash = async () => {
     console.log(hashValue);
   });
 
-  readStream.on("error", (err) => console.error(err.message));
+  readStream.on("error", (err) => {
+    console.log(err);
+  })
 };
 
 await calculateHash();
