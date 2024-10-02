@@ -1,11 +1,11 @@
 import path, { dirname } from "node:path";
 import { release, version } from "os";
 import { createServer as createServerHttp } from "http";
-import "./files/c.js";
 import { createRequire } from 'module'
 import { fileURLToPath } from "node:url";
+import "./files/c.js";
 
-const require = createRequire(import.meta.url)
+const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 

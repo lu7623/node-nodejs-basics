@@ -1,6 +1,6 @@
 import { createReadStream } from "node:fs";
 import { createPath } from "../utils.js";
-const { createHash } = await import("node:crypto");
+import { createHash } from "node:crypto";
 
 const filename = createPath("hash/files/fileToCalculateHashFor.txt");
 
