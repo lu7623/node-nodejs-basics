@@ -1,15 +1,15 @@
 import { promisify } from "node:util";
 import { createGunzip } from "node:zlib";
-import { createPath } from "../utils.js";
 import { pipeline } from "node:stream";
 import { createReadStream, createWriteStream } from "node:fs";
+import path from 'node:path';
 
 const pipe = promisify(pipeline);
 
 const decompress = async () => {
   try {
-    const srcFile = createPath("zip/files/archive.gz");
-    const destFile = createPath("zip/files/11.txt");
+    const srcFile = path.join(import.meta.dirname, "files/archive.gz");
+    const destFile = path.join(import.meta.dirname, "files/fileToCompress777.txt");
     const gunzip = createGunzip();
     const source = createReadStream(srcFile);
     const destination = createWriteStream(destFile);

@@ -1,7 +1,8 @@
 import {createWriteStream} from "fs"
-import { createPath } from "../utils.js";
+import path from 'node:path';
 
-const filePath = createPath('streams/files/fileToWrite.txt')
+export const filePath =  path.join(import.meta.dirname, "files/fileToWrite.txt");
+
 const write = async () => {
     const writeStream = createWriteStream(filePath)
     process.stdin.pipe(writeStream)

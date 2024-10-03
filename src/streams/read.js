@@ -1,10 +1,10 @@
 import fs from "fs";
-import { createPath } from "../utils.js";
+import path from 'node:path';
 
-const fileName = createPath("streams/files/fileToRead.txt");
+export const filePath =  path.join(import.meta.dirname, "files/fileToRead.txt");
 
 const read = async () => {
-  const readStream = fs.createReadStream(fileName, { encoding: "utf-8" });
+  const readStream = fs.createReadStream(filePath, { encoding: "utf-8" });
 
   readStream.on("data", (data) => {
     process.stdout.write(`${data}\n`);

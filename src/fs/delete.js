@@ -1,7 +1,7 @@
 import * as fs from "node:fs/promises";
-import { createPath, FS_ERROR_MESSAGE } from "../utils.js";
+import { createPath, FS_ERROR_MESSAGE } from "./utils.js";
 
-const filePath = createPath("fs/files/fileToRemove.txt");
+const filePath = createPath("files/fileToRemove.txt");
 
 const remove = async () => {
   try {
